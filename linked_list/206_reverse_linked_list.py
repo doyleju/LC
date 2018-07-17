@@ -5,7 +5,7 @@
 #         self.next = None
 
 class Solution:
-    def reverseList(self, head):
+    def reverseList(self, head, prev=None):
         """
         :type head: ListNode
         :rtype: ListNode
@@ -38,3 +38,26 @@ class Solution:
                 next_node = next_node.next
                 
         return prev
+    
+        #2 75p
+        current = head
+        
+        while current:
+            head = head.next
+            current.next = prev
+            current, prev = head, current
+            
+        return prev
+        
+        """
+        #3 Recursive 15p
+        if not head:
+            return prev
+        
+        current = head
+        head = head.next
+        current.next = prev
+        
+        return self.reverseList(head, current)
+        
+        """
