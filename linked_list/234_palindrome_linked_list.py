@@ -32,9 +32,24 @@ class Solution(object):
         return True
         """
         
-        #2
+        """
+        #2 80p
         
-        if not head:
+        list_nums = list()
+        
+        current = head
+        count = 0
+        
+        while current:
+            list_nums.append(current.val)
+            current = current.next
+            count += 1
+            
+        return list_nums == list_nums[::-1]
+        """
+    
+        #2 10p
+        if not head or not head.next:
             return True
         
         dummy = ListNode(None)
@@ -43,6 +58,7 @@ class Solution(object):
         slow = head
         slow_n = slow.next
         fast = head.next
+        odd = False
         
         while fast:
             slow.next = prev
@@ -52,14 +68,20 @@ class Solution(object):
             
             try:
                 fast = fast.next.next
+                odd = True
             except:
                 fast = fast.next
+                odd = False
                 
-        while slow_n:
-            if slow_n.val != prev.val:
+        if odd:
+            slow = slow.next
+                
+        while slow:
+                            
+            if slow.val != prev.val:
                 return False
             
             prev = prev.next
-            slow_n = slow_n.next
+            slow = slow.next
             
         return True
