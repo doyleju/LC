@@ -25,7 +25,7 @@ class Solution(object):
         bits = 0
         
         for i in range(32):
-            #n = n & mask
+            
             if n & mask != 0:
                 bits += 1
                 
