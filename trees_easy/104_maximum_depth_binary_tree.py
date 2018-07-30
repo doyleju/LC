@@ -22,14 +22,10 @@ class Solution:
         #2 70p
         # Recursive    
         
-        def dfs(node, result):
-        
-            if not node:
-                return result
-        
-            return max(dfs(node.left, result + 1), dfs(node.right, result + 1))
-
-        return dfs(root, 0)
+        if not root:
+            return 0
+        else:
+            return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
         """
         
         """
