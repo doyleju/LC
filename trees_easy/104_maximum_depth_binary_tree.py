@@ -5,11 +5,8 @@ class Solution:
         :rtype: int
         """
         
-        """
         #1 70p
         # Recursive
-        #if not root:
-        #    return 0
         
         return self.dfs(root, 0)
         
@@ -20,8 +17,8 @@ class Solution:
             return result
         
         return max(self.dfs(node.left, result + 1), self.dfs(node.right, result + 1))
-        """
     
+        """
         #2 70p
         # Recursive    
         
@@ -33,6 +30,7 @@ class Solution:
             return max(dfs(node.left, result + 1), dfs(node.right, result + 1))
 
         return dfs(root, 0)
+        """
         
         """
         #3
